@@ -1,0 +1,26 @@
+<div class="container">
+	<h1>Лодки</h1>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-8 col-md-9">
+			<h4 class="text-weight-normal">{{ data.boats.results.length }} лодок</h4>
+			<div class="blog">
+				{{# each data.boats.results}}
+				<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="post">
+					<h2>
+                        <a href="{{boatUrl slug}}">
+                            {{{title}}}
+                        </a>
+                    </h2>
+					<p class="lead text-muted">
+                        {{{price}}}
+					</p>
+					<p>{{{content.extended}}}</p>
+					<p class="read-more"><a href="{{boatUrl slug}}">Посмотреть</a></p>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+</div>

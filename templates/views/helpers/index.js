@@ -229,6 +229,10 @@ module.exports = function() {
 	_helpers.categoryUrl = function(categorySlug, options) {
 		return ('/blog/' + categorySlug);
 	};
+
+	_helpers.boatUrl = function(boatSlug, options) {
+		return ('/boats/' + boatSlug)
+	};
 	
 	// ### Pagination Helpers
 	// These are helpers used in rendering a pagination system for content

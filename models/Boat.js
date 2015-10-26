@@ -9,8 +9,14 @@ var Boat = new keystone.List('Boat', {
 
 Boat.add({
 	title: { type: String, required: true },
+	type: { type: Types.Select, options: 'boat, canoe', default: 'canoe' },
 	price: { type: Types.Money, currency: 'ru' },
-	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
+	state: {
+		type: Types.Select,
+		options: 'draft, published, archived',
+		default: 'draft',
+		index: true
+	},
 	image: { type: Types.CloudinaryImage },
 	content: {
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
@@ -24,5 +30,5 @@ Boat.schema.virtual('content.full').get(function() {
 
 
 
-Boat.defaultColumns = 'title, price, state|20%';
+Boat.defaultColumns = 'title, type, price, state|20%';
 Boat.register();
