@@ -21,6 +21,7 @@ func Start(cfg Config, dbModel *model.Model, listener net.Listener) {
         MaxHeaderBytes: 1 << 16}
 
     http.Handle("/", indexHandler(dbModel))
+    http.Handle("/js/", http.FileServer(cfg.Assets))
 
     go server.Serve(listener)
 }
