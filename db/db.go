@@ -33,6 +33,7 @@ func InitDb(cfg Config) (*pgDb, error) {
 type pgDb struct {
     dbConn *sqlx.DB
     sqlSelectBoats *sqlx.Stmt
+    sqlSelectBoat *sql.Stmt
 }
 
 func (pg *pgDb) createTablesIfNotExist() error {
@@ -52,7 +53,7 @@ func (pg *pgDb) createTablesIfNotExist() error {
 
 func (pg *pgDb) prepareSqlStatements() (err error) {
 
-    if pg.sqlSelectBoats, err = p.dbConn.Preparex(
+    if pg.sqlSelectBoats, err = pg.dbConn.Preparex(
         "SELECT id, title, type FROM boats",
     ); err != nil {
         return err
@@ -61,10 +62,10 @@ func (pg *pgDb) prepareSqlStatements() (err error) {
     return nil
 }
 
-func (pg *pdDb) SelectBoats() (*pgDb, error) {
+func (pg *pgDb) SelectBoats() ([]*model.Boat, error) {
     boats := make([]*model.Boat, 0)
-    if err := pg.sqlSelectBoats.Select(&people); err != nil {
+    if err := pg.sqlSelectBoats.Select(&boats); err != nil {
         return nil, err
     }
-    return people, nil
+    return boats, nil
 }

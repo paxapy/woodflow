@@ -34,7 +34,7 @@ const indexHTML = `
     <title>Hello world!!!</title>
   </head>
   <body>
-    <div id='root'></div>
+    <div id='root'><h1>peck</h1></div>
   </body>
 </html>
 `

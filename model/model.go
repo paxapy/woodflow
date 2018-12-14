@@ -17,8 +17,3 @@ func New(db db) *Model {
 func (m *Model) Boats() ([]*Boat, error) {
     return m.SelectBoats()
 }
-
-type Boat struct {
-    Id int64
-    Title, Type string
-}

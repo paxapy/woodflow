@@ -13,7 +13,7 @@ import (
 )
 
 type Config struct {
-    ListenSpec String
+    ListenSpec string
 
     Db db.Config
     UI ui.Config
@@ -43,7 +43,7 @@ func Run(cfg *Config) error {
 
 func waitForSignal() {
     ch := make(chan os.Signal)
-    signal.Notify(ch, syscall,SIGINT, syscall.SIGTERM)
+    signal.Notify(ch, syscall.SIGINT, syscall.SIGTERM)
     signal := <-ch
-    log.Printf("got signal: %v, exiting." signal)
+    log.Printf("got signal: %v, exiting.", signal)
 }
