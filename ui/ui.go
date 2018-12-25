@@ -23,6 +23,7 @@ func Start(cfg Config, m *model.Model, listener net.Listener) {
     http.Handle("/", indexHandler(m))
     http.Handle("/js/", http.FileServer(cfg.Assets))
     http.Handle("/boats/", boatsHandler(m))
+    http.Handle("/pages/", pagesHandler(m))
 
     go server.Serve(listener)
 }

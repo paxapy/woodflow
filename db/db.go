@@ -32,40 +32,60 @@ func InitDb(cfg Config) (*pgDb, error) {
 
 type pgDb struct {
     dbConn *sqlx.DB
-    sqlSelectBoats *sqlx.Stmt
-    sqlSelectBoat *sql.Stmt
+    sqlSelectList *sqlx.Stmt
+    sqlSelectItem *sql.Stmt
+}
+
+var createSql = [...]string{
+    `CREATE TABLE IF NOT EXISTS boats (
+     id SERIAL NOT NULL PRIMARY KEY,
+     title TEXT NOT NULL,
+     type TEXT NOT NULL
+    );`,
+    `CREATE TABLE IF NOT EXISTS pages (
+     id SERIAL NOT NULL PRIMARY KEY,
+     title TEXT NOT NULL,
+     body TEXT NOT NULL
+    );`,
+}
+
+var selectSql = [...]string{
+    "SELECT id, title, type FROM boats",
+    "SELECT id, title, body FROM pages",
 }
 
 func (pg *pgDb) createTablesIfNotExist() error {
-    create_sql := `
-       CREATE TABLE IF NOT EXISTS boats (
-       id SERIAL NOT NULL PRIMARY KEY,
-       title TEXT NOT NULL,
-       type TEXT NOT NULL
-    );`
-    if rows, err := pg.dbConn.Query(create_sql); err != nil {
-        return err
-    } else {
-        rows.Close()
+    for _, q := range createSql {
+        if rows, err := pg.dbConn.Query(q); err != nil {
+            return err
+        } else {
+            rows.Close()
+        }
     }
     return nil
 }
 
 func (pg *pgDb) prepareSqlStatements() (err error) {
-
-    if pg.sqlSelectBoats, err = pg.dbConn.Preparex(
-        "SELECT id, title, type FROM boats",
-    ); err != nil {
-        return err
+    for _, q := range selectSql {
+        if pg.sqlSelectList, err = pg.dbConn.Preparex(q); err != nil {
+            return err
+        }
     }
-
     return nil
 }
 
 func (pg *pgDb) SelectBoats() ([]*model.Boat, error) {
     boats := make([]*model.Boat, 0)
-    if err := pg.sqlSelectBoats.Select(&boats); err != nil {
+    if err := pg.sqlSelectList.Select(&boats); err != nil {
         return nil, err
     }
     return boats, nil
+}
+
+func (pg *pgDb) SelectPages() ([]*model.Page, error) {
+    pages := make([]*model.Page, 0)
+    if err := pg.sqlSelectList.Select(&pages); err != nil {
+        return nil, err
+    }
+    return pages, nil
 }
