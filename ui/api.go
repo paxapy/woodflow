@@ -2,6 +2,7 @@ package ui
 
 import (
     "fmt"
+    "log"
     "net/http"
     "encoding/json"
 
@@ -11,14 +12,14 @@ import (
 func listHandler(list interface{}, err error) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
-            print(err)
+            log.Print(err)
 			http.Error(w, "Error getting list", http.StatusBadRequest)
 			return
 		}
 
 		js, err := json.Marshal(list)
 		if err != nil {
-            print(err)
+            log.Print(err)
 			http.Error(w, "Error encoding json", http.StatusBadRequest)
 			return
 		}
