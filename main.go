@@ -27,7 +27,7 @@ func processFlags() *daemon.Config {
 
 func setupHttpAssets(cfg *daemon.Config) {
     log.Printf("Assets served from %q.", assetsPath)
-    cfg.UI.Assets = http.Dir(assetsPath)
+    cfg.Api.Assets = http.Dir(assetsPath)
 }
 
 func main() {

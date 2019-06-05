@@ -9,14 +9,13 @@ import (
 
     "github.com/paxapy/boats/db"
     "github.com/paxapy/boats/model"
-    "github.com/paxapy/boats/ui"
+    "github.com/paxapy/boats/api"
 )
 
 type Config struct {
     ListenSpec string
-
     Db db.Config
-    UI ui.Config
+    Api api.Config
 }
 
 func Run(cfg *Config) error {
@@ -35,7 +34,7 @@ func Run(cfg *Config) error {
         log.Printf("error creating listener: %v\n", err)
     }
 
-    ui.Start(cfg.UI, dbModel, listener)
+    api.Start(cfg.Api, dbModel, listener)
     waitForSignal()
 
     return nil
