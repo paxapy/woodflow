@@ -42,19 +42,27 @@ type pgDb struct {
 var createSql = map[string]string {
     boat: `CREATE TABLE IF NOT EXISTS boats (
      id SERIAL NOT NULL PRIMARY KEY,
-     title TEXT NOT NULL,
-     type TEXT NOT NULL
+     title VARCHAR (42) NOT NULL,
+     slug VARCHAR (42) NOT NULL UNIQUE,
+     type VARCHAR (13) NOT NULL UNIQUE,
+     length REAL,
+     width REAL,
+     height REAL,
+     thickness REAL,
+     weight REAL,
+     capacity INTEGER
     );`,
     page: `CREATE TABLE IF NOT EXISTS pages (
      id SERIAL NOT NULL PRIMARY KEY,
-     title TEXT NOT NULL,
+     title VARCHAR (42) NOT NULL,
+     slug VARCHAR (42) NOT NULL UNIQUE,
      body TEXT NOT NULL
     );`,
 }
 
 var selectSql = map[string]string {
-    boat: "SELECT id, title, type FROM boats",
-    page: "SELECT id, title, body FROM pages",
+    boat: "SELECT * FROM boats",
+    page: "SELECT id, title, slug, body FROM pages",
 }
 
 func (pg *pgDb) createTablesIfNotExist() error {

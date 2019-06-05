@@ -1,8 +1,8 @@
 package model
 
 type Page struct {
-    title string
-    body string
+    Id int
+    Title, Slug, Body string
 }
 
 func (m *Model) Pages() ([]*Page, error) {
