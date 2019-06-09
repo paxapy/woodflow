@@ -1,7 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 /tmp
 /out-tsc
-/ui/node_modules
+node_modules/
 /ui/yarn-error.log
 /ui/cypress/screenshots/
 /ui/__sapper__/
