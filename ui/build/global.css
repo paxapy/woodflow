@@ -1,0 +1,105 @@
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 13px;
+	line-height: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 0.5em 0;
+	font-weight: 400;
+	line-height: 1.2;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+a {
+	color: inherit;
+}
+
+code {
+	font-family: menlo, inconsolata, monospace;
+	font-size: calc(1em - 2px);
+	color: #555;
+	background-color: #f0f0f0;
+	padding: 0.2em 0.4em;
+	border-radius: 2px;
+}
+
+@media (min-width: 400px) {
+	body {
+		font-size: 16px;
+	}
+}
+
+nav {
+	width: 4%;
+	height: 100%;
+	position: fixed;
+	background: black;
+  color: white;
+}
+
+nav img {
+	margin: 2em 1.3em 7em;
+}
+
+nav a {
+	writing-mode: tb-rl;
+  transform: rotate(180deg);
+  margin: 42px auto;
+  display: block
+}
+
+header {
+	position: absolute;
+}
+
+header {
+	display: flex;
+  margin: 2% 7%;
+  width: 92%;
+}
+
+header address {
+	padding-left: 72%;
+}
+
+main {
+	margin-left: 4%;
+}
+
+.home__top {
+	margin: 0;
+}
+
+.home__top h1 {
+	position: absolute;
+	top: 21%;
+	left: 11%;
+	width: 33%;
+	font-weight: bold;
+  font-size: 330%;
+}
+
+.home__top figcaption {
+	position: absolute;
+	top: 54%;
+	font-size: 130%;
+	left: 11%;
+	width: 33%;
+}
+
+.home__top img {
+	padding: 0;
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 100%;
+}
