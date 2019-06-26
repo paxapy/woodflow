@@ -77,6 +77,13 @@ main {
 
 .home__top {
 	margin: 0;
+	height: 100vh;
+}
+
+.home__top img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .home__top h1 {
@@ -94,12 +101,4 @@ main {
 	font-size: 130%;
 	left: 11%;
 	width: 33%;
-}
-
-.home__top img {
-	padding: 0;
-	display: block;
-	margin: 0 auto;
-	width: 100%;
-	max-width: 100%;
 }
