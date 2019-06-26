@@ -6,8 +6,11 @@
 </script>
 
 <Nav {segment}/>
-<Header />
 
-<main>
-	<slot></slot>
-</main>
+<div class="content">
+	<Header />
+
+	<main>
+		<slot></slot>
+	</main>
+</div>

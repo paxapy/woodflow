@@ -38,41 +38,49 @@ code {
 	}
 }
 
-nav {
-	width: 4%;
+.app {
+	display: flex;
+}
+
+.nav {
+	width: 72px;
 	height: 100%;
 	position: fixed;
 	background: black;
   color: white;
 }
 
-nav img {
+.nav img {
 	margin: 2em 1.3em 7em;
 }
 
-nav a {
+.nav a {
 	writing-mode: tb-rl;
   transform: rotate(180deg);
   margin: 42px auto;
   display: block
 }
 
-header {
+.content {
+	flex-grow: 1;
+	position: relative;
+  width: calc(100% - 72px);
+}
+
+.header {
 	position: absolute;
-}
-
-header {
 	display: flex;
-  margin: 2% 7%;
-  width: 92%;
+  padding: 40px 20px 40px 0px;
+  width: 100%;
+  align-items: center;
 }
 
-header address {
+.header address {
 	padding-left: 72%;
 }
 
 main {
-	margin-left: 4%;
+	margin-left: 72px;
 }
 
 .home__top {

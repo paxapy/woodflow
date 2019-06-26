@@ -1,4 +1,4 @@
-<header>
+<header class="header">
   <img alt='woodflow' src='img/logo.png'>
   <address>
     <a href="/#location">Пеновский район, д. Гора</a>

@@ -2,7 +2,7 @@
 	export let segment;
 </script>
 
-<nav>
+<nav class="nav">
 	<img alt="woodflow" src="img/icon.png">
 	<a class='{segment === undefined ? "selected" : ""}' href='.'>мастерская</a>
 	<a class='{segment === "about" ? "selected" : ""}' href='about'>лодки и каноэ</a>
