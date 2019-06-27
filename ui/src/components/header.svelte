@@ -31,11 +31,11 @@
 <header class="header">
   <img alt='woodflow' src='img/logo.png'>
   <address>
-    <a href="/#location" class="location">Пеновский район, д. Гора</a>
+    <a href="/#contact" class="location">Пеновский район, д. Гора</a>
     <a href="mailto:order@woodflow.ru">
       <img alt="email" src="img/icons/mail.svg">
     </a>
-    <a href="/#">
+    <a href="call">
       <img alt="call" src="img/icons/call.svg">
     </a>
   </address>
