@@ -35,7 +35,7 @@
     <a href="mailto:order@woodflow.ru">
       <img alt="email" src="img/icons/mail.svg">
     </a>
-    <a href="call">
+    <a href="tel:+79190673506">
       <img alt="call" src="img/icons/call.svg">
     </a>
   </address>

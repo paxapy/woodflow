@@ -280,7 +280,7 @@
 			или хотите обсудить сроки изготовления, а так же способ доставки и все прочие вопросы:
 		</p>
 		<p class="contact">
-			<a href="call">
+			<a href="tel:+79190673506">
 				<img alt="call" src="img/icons/call-white.svg">
 				8 919 067 35 06
 			</a>
