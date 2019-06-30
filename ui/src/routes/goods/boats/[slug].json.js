@@ -1,8 +1,8 @@
-import posts from './_posts.js';
+import boats from './_boats.js';
 
 const lookup = new Map();
-posts.forEach(post => {
-	lookup.set(post.slug, JSON.stringify(post));
+boats.forEach(boat => {
+	lookup.set(boat.slug, JSON.stringify(boat));
 });
 
 export function get(req, res, next) {

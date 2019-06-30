@@ -12,7 +12,7 @@
 		display: flex;
 		flex-flow: column;
 		align-items: center;
-		padding: 42px 0;
+		padding: 33px 0;
 		z-index: 5;
 	}
 
@@ -21,6 +21,15 @@
 	  transform: rotate(180deg);
 	  padding: 42px 0;
 		text-decoration: none;
+	}
+
+	.nav a.home {
+		transform: none;
+		padding: 0;
+	}
+
+	.nav a.active {
+		text-decoration: underline;
 	}
 
 	.nav .contact {
@@ -39,7 +48,9 @@
 </style>
 
 <nav class="nav">
-	<img alt="woodflow" src="img/icon.png">
+	<a href="/" class="home">
+		<img alt="woodflow" src="img/icon.png">
+	</a>
 	{#if segment === undefined}
 		<a href="/goods">⟱</a>
 		<a href="/#shipyard">мастерская</a>
@@ -47,8 +58,8 @@
 	{/if}
 	{#if segment && segment.includes("goods")}
 		<a href="/">⟰</a>
-		<a href="/#shipyard">лодки</a>
-		<a href="/#goods" class="{segment === "about" ? "selected" : ""}">каноэ</a>
+		<a href="/goods/boats" class="{segment === "boats" ? "active" : ""}">лодки</a>
+		<a href="/goods/canoes" class="{segment === "canoes" ? "active" : ""}">каноэ</a>
 	{/if}
 	<div class="contact">
 		<a href="tel:+79190673506">
