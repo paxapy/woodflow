@@ -21,6 +21,7 @@
 	  transform: rotate(180deg);
 	  padding: 42px 0;
 		text-decoration: none;
+		white-space: nowrap;
 	}
 
 	.nav a.home {
@@ -52,7 +53,7 @@
 		<img alt="woodflow" src="img/icon.png">
 	</a>
 	{#if segment === undefined}
-		<a href="/goods">⟱</a>
+		<a href="/goods/boats">⟱</a>
 		<a href="/#shipyard">мастерская</a>
 		<a href="/#goods">лодки и каноэ</a>
 	{/if}

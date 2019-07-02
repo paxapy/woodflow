@@ -25,41 +25,22 @@
 		object-fit: cover;
 	}
 
-	.home__top h1 {
+	.home__top figcaption {
 		position: absolute;
 		top: 142px;
 		left: 72px;
-		width: 8em;
+    font-size: 19px;
+    width: 23em;
+	}
+
+	.home__top figcaption h1 {
 		font-weight: bold;
 		font-size: 64px;
 		line-height: 1;
 	}
 
-	.home__top figcaption {
-		position: absolute;
-    top: 300px;
-    font-size: 19px;
-    left: 72px;
-    width: 21em;
-	}
-
-	.home__button {
-		display: inline-block;
-    padding: 7px 33px;
-    text-decoration: none;
-    border-radius: 5px;
-		font-weight: 600;
-		font-size: 13px;
-	}
-
-	.home__button.black {
-		color: white;
-		background: black;
-	}
-
-	.home__button.white {
-		color: black;
-		background: white;
+	.home__top figcaption .link-button {
+		margin-top: 210px;
 	}
 
 	.home__textbox {
@@ -79,7 +60,7 @@
 		padding: 0 33%;
 	}
 
-	.home__textbox .home__button {
+	.home__textbox .link-button {
 		margin-top: 11px;
 	}
 
@@ -191,9 +172,12 @@
 </svelte:head>
 
 <figure class="home__top">
-	<h1>Деревянные лодки и каноэ</h1>
 	<img alt='woodflow' src="img/top.png">
-	<figcaption>По технологиям северо-американских кустарных производств</figcaption>
+	<figcaption>
+	  <h1>Деревянные лодки и каноэ</h1>
+		<p>По технологиям северо-американских кустарных производств</p>
+		<a href="/goods/boats" class="link-button big">Выбрать Лодку</a>
+	</figcaption>
 </figure>
 
 <section class="home__textbox" id="shipyard">
@@ -223,7 +207,7 @@
 		Кто видел 3-х местную деревянную лодку, которую можно унести на плече,
 		или каноэ, которое можно нести в одной руке?
 	</p>
-	<a href="/shipyard" class="home__button black">Подробнее</a>
+	<a href="/goods/boats" class="link-button">Подробнее</a>
 </section>
 
 <section class="home__goods">
@@ -236,7 +220,7 @@
 				изготовления деревянных лодок, практика их эксплуатации осуществлена в северной америке,
 				по крайней мере, со времен изобретения эпоксидных составов.
 			</p>
-			<a href="/boats" class="home__button white">Подробнее</a>
+			<a href="/goods/boats" class="link-button white">Подробнее</a>
 		</figcaption>
 	</figure>
 	<figure>
@@ -247,7 +231,7 @@
 				Были случаи, когда человек приобретал у нас каноэ, чтобы подвесить его над камином.
 				Если это лодка не из дерева, то возможно было бы такое?
 			</p>
-			<a href="/boats/kanoes" class="home__button white">Подробнее</a>
+			<a href="/goods/canoes" class="link-button white">Подробнее</a>
 		</figcaption>
 	</figure>
 </section>

@@ -1,11 +1,10 @@
 <script context="module">
 	export async function preload({ params, query }) {
-
-		const res = await this.fetch(`goods/boats/${params.slug}.json`);
+		const res = await this.fetch(`goods.json?category=${params.category}`);
 		const data = await res.json();
 
 		if (res.status === 200) {
-			return { boat: data };
+			return { category: params.category, goods: data, boat: data[0]};
 		} else {
 			this.error(res.status, data.message);
 		}
@@ -13,10 +12,32 @@
 </script>
 
 <script>
-	export let boat;
+	export let category = '';
+	export let goods = [];
+	export let boat = {};
 </script>
 
 <style>
+.goods-nav {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 42px 230px;
+	box-sizing: border-box;
+	z-index: 6;
+}
+
+.goods-nav a {
+	text-decoration: none;
+  text-transform: uppercase;
+  padding: 0 11px;
+}
+
+.goods-nav a.active {
+	text-decoration: underline;
+}
+
 .details {
 	padding: 120px 72px;
 }
@@ -47,17 +68,6 @@
 	font-weight: bold;
 }
 
-.details .order-button {
-	color: white;
-	background: black;
-	padding: 33px 42px;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 20px;
-	font-weight: 600;
-	border-radius: 10px;
-}
-
 .slider {
 	position: absolute;
 	top: 0;
@@ -71,10 +81,21 @@
 </style>
 
 <svelte:head>
-	<title>{boat.title}</title>
+	<title>Boats | {boat.title}</title>
 </svelte:head>
 
+<nav class="goods-nav">
+	{#each goods as good}
+		<a href='/goods/{category}#{good.slug}'
+			class="{boat.slug == good.slug ? 'active': ''}"
+			on:click="{() => boat = good}">
+			{good.title}
+		</a>
+	{/each}
+</nav>
+
 <section class="details">
+
 	<h1>{boat.title}</h1>
 
 	<table class="spec">
@@ -101,9 +122,9 @@
 	</table>
 	<p class="description"></p>
 
-	<h2 class="price">{boat.price.toLocaleString()} ₽</h2>
+	<h2 class="price">{boat.price} ₽</h2>
 
-	<a href="#pop" class="order-button">Заказать Лодку</a>
+	<a href="#pop" class="link-button big">Заказать</a>
 </section>
 
 <figure class="slider">
