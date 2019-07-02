@@ -1,0 +1,15 @@
+{
+	"background_color": "#ffffff",
+	"theme_color": "#333333",
+	"name": "TODO",
+	"short_name": "TODO",
+	"display": "minimal-ui",
+	"start_url": "/",
+	"icons": [
+		{
+			"src": "img/logo.png",
+			"sizes": "88x29",
+			"type": "image/png"
+		}
+	]
+}
