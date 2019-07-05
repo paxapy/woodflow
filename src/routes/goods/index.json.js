@@ -11,11 +11,11 @@ export function get(req, res, next) {
 	const category = req.query && req.query.category;
 	const slug = req.query && req.query.slug;
 
-	if (category) {
+	if (!slug) {
 		res.writeHead(200, {
 			'Content-Type': 'application/json'
 		});
-		res.end(JSON.stringify(goods.filter(g => g.category == category)));
+		res.end(JSON.stringify(goods));
   } else if (slug && lookup.has(slug)) {
 		res.writeHead(200, {
 			'Content-Type': 'application/json'

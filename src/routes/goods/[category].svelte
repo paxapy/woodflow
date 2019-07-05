@@ -1,10 +1,17 @@
 <script context="module">
 	export async function preload({ params, query }) {
-		const res = await this.fetch(`goods.json?category=${params.category}`);
+		const res = await this.fetch(`goods.json`);
 		const data = await res.json();
 
 		if (res.status === 200) {
-			return { category: params.category, goods: data, boat: data[0], activeImage: data[0].images[0]};
+			const goods = data.filter(g => g.category == params.category)
+			const boat = goods[0];
+			return {
+				goods: goods,
+				boat: boat,
+				category: params.category,
+				activeImage: boat.images[0]
+			};
 		} else {
 			this.error(res.status, data.message);
 		}
