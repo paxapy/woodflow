@@ -59,8 +59,8 @@
 	{/if}
 	{#if segment && segment.includes("goods")}
 		<a href="/">⟰</a>
-		<a href="/goods/boats" class="{segment === "boats" ? "active" : ""}">лодки</a>
-		<a href="/goods/canoes" class="{segment === "canoes" ? "active" : ""}">каноэ</a>
+		<a href="/goods/boats" class="{segment === 'boats' ? 'active' : ''}">лодки</a>
+		<a href="/goods/canoes" class="{segment === 'canoes' ? 'active' : ''}">каноэ</a>
 	{/if}
 	<div class="contact">
 		<a href="tel:+79190673506">

@@ -193,7 +193,7 @@
 </section>
 
 <figure class="home__founder">
-	<img alt="founder" src="img/blackboat/b30.jpg">
+	<img alt="founder" src="img/fofan.jpg">
 	<figcaption>Наша деревянная лодка</figcaption>
 </figure>
 

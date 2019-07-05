@@ -4,7 +4,7 @@
 		const data = await res.json();
 
 		if (res.status === 200) {
-			return { category: params.category, goods: data, boat: data[0]};
+			return { category: params.category, goods: data, boat: data[0], activeImage: data[0].images[0]};
 		} else {
 			this.error(res.status, data.message);
 		}
@@ -15,6 +15,7 @@
 	export let category = '';
 	export let goods = [];
 	export let boat = {};
+	export let activeImage = '';
 </script>
 
 <style>
@@ -70,25 +71,55 @@
 
 .slider {
 	position: absolute;
-	top: 0;
+	top: 210px;
 	right: 0;
-	width: 72%;
+	width: 82%;
+	overflow: hidden;
 }
 
 .slider img {
 	width: 100%;
+  position: relative;
+	right: -11px;
+	z-index: -1;
+}
+
+.slider .switch {
+	position: absolute;
+  right: 40px;
+  top: 420px;
+	display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+
+.slider .switch span {
+	display: inline-block;
+	height: 10px;
+  width: 10px;
+  border-radius: 5px;
+  margin: 4px;
+	background: black;
+  cursor: pointer;
+}
+
+.slider .switch span.active {
+	height: 8px;
+  width: 8px;
+  border-radius: 4px;
 }
 </style>
 
 <svelte:head>
-	<title>Boats | {boat.title}</title>
+	<title>Shipyard | {boat.title}</title>
 </svelte:head>
 
 <nav class="goods-nav">
 	{#each goods as good}
 		<a href='/goods/{category}#{good.slug}'
 			class="{boat.slug == good.slug ? 'active': ''}"
-			on:click="{() => boat = good}">
+			on:click="{() => boat = good}"
+			on:click="{() => activeImage = good.images[0]}">
 			{good.title}
 		</a>
 	{/each}
@@ -128,8 +159,15 @@
 </section>
 
 <figure class="slider">
-	<img alt={boat.title} src={boat.image}>
-	<figcaption>
-		<span>o</span>
-	</figcaption>
+	<img alt={boat.title} src={activeImage}>
+	{#if boat.images.length > 1}
+		<figcaption class="switch">
+			{#each boat.images as image}
+				<span
+					class="{activeImage == image ? 'active': ''}"
+					on:click="{() => activeImage = image}">
+				</span>
+			{/each}
+		</figcaption>
+	{/if}
 </figure>
