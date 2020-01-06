@@ -1,6 +1,6 @@
 {
-  "name": "TODO",
-  "description": "TODO",
+  "name": "woodflow",
+  "description": "frontend for goods project",
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
