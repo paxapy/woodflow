@@ -23,7 +23,7 @@
   export let goods;
   export let currentGood;
 
-  function selectGood(good) {
+  function setGood(good) {
     currentGood = good;
   }
 </script>
@@ -36,13 +36,13 @@
   {#each goods as good}
     <a href='/goods/{category}#{good.slug}'
       class="{currentGood.slug == good.slug ? 'active': ''}"
-      on:click={() => selectGood(good)}>
+      on:click={() => setGood(good)}>
       {good.title}
     </a>
   {/each}
 </nav>
 
-<Good good={currentGood}></Good>
+<Good good={currentGood} image={currentGood.images[0]}></Good>
 
 <style>
   .goods-nav {

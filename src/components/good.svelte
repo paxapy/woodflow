@@ -1,11 +1,11 @@
 <script>
   export let good;
-  export let activeImage = good.images[0];
+  export let image;
 
   function nextImage() {
-    const current = good.images.indexOf(activeImage);
+    const current = good.images.indexOf(image);
     const next = good.images[current + 1];
-    activeImage = next ? next : good.images[0];
+    image = next ? next : good.images[0];
   }
 
 </script>
@@ -43,13 +43,13 @@
 </section>
 
 <figure class="slider" on:click={() => nextImage()}>
-  <img alt={good.title} src={activeImage}>
+  <img alt={good.title} src={image}>
   {#if good.images.length > 1}
     <figcaption class="switch">
-      {#each good.images as image}
+      {#each good.images as nextImage}
         <span
-          class="{activeImage == image ? 'active': ''}"
-          on:click={() => activeImage = image}>
+          class="{image == nextImage ? 'active': ''}"
+          on:click={() => image = nextImage}>
         </span>
       {/each}
     </figcaption>
