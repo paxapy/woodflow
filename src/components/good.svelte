@@ -1,14 +1,33 @@
 <script>
+  import Modal from './modal.svelte';
+  
   export let good;
   export let image;
+
+  let imgTime;
+  let showModal = false;
+
+  function setImage(img) {
+    image = img;
+    clearTimeout(imgTime);
+  }
 
   function nextImage() {
     const current = good.images.indexOf(image);
     const next = good.images[current + 1];
     image = next ? next : good.images[0];
+    clearTimeout(imgTime);
   }
 
+  function swipe() {
+    nextImage();
+    imgTime = setTimeout(() => swipe(), 4200);
+  }
+
+  setTimeout(() => swipe(), 4200);
+  
 </script>
+
 <section class="details">
 
   <h1>{good.title}</h1>
@@ -39,25 +58,48 @@
 
   <h2 class="price">{good.price} ₽</h2>
 
-  <a href="#pop" class="link-button big">Заказать</a>
+  <button class="link-button big" on:click={() => showModal = true}>Заказать</button>
+
+  {#if good.images.length > 1}
+    <nav class="switch">
+      {#each good.images as img}
+        <span
+          class="{image == img ? 'active': ''}"
+          on:click|stopPropagation={() => setImage(img)}>
+        </span>
+      {/each}
+    </nav>
+  {/if}
 </section>
 
 <figure class="slider" on:click={() => nextImage()}>
   <img alt={good.title} src={image}>
-  {#if good.images.length > 1}
-    <figcaption class="switch">
-      {#each good.images as nextImage}
-        <span
-          class="{image == nextImage ? 'active': ''}"
-          on:click={() => image = nextImage}>
-        </span>
-      {/each}
-    </figcaption>
-  {/if}
 </figure>
 
-<style>
+{#if showModal}
+	<Modal on:close="{() => showModal = false}">
+		<h2 slot="header">
+			{good.title}
+		</h2>
+    <p>
+      Проще всего сделать заказ можно позвонив нам по телефону: 
+      <a href="tel:+79190673506">
+        +7 (919) 067 35 06
+      </a>
+    </p>
+    <p>
+      Либо написать на почту:
+      <a href="mailto:order@woodflow.ru">
+        order@woodflow.ru
+      </a>
+    </p>
+    <p>
+      И обсудить сроки, условия доставки и прочие интересующие вопросы.
+    </p>
+	</Modal>
+{/if}
 
+<style>
   .details {
     padding: 120px 72px;
   }
@@ -88,6 +130,11 @@
     font-weight: bold;
   }
 
+  .details .link-button {
+    position: absolute;
+    z-index: 1;
+  }
+
   .slider {
     position: absolute;
     top: 210px;
@@ -104,28 +151,28 @@
     z-index: -1;
   }
 
-  .slider .switch {
+  .switch {
     position: absolute;
-    right: 40px;
-    top: 420px;
+    right: 42px;
     display: flex;
     flex-flow: row;
     align-items: center;
+    z-index: 1;
   }
 
-  .slider .switch span {
+  .switch span {
     display: inline-block;
-    height: 10px;
-    width: 10px;
+    height: 11px;
+    width: 11px;
     border-radius: 5px;
     margin: 4px;
     background: black;
     cursor: pointer;
   }
 
-  .slider .switch span.active {
-    height: 8px;
-    width: 8px;
-    border-radius: 4px;
+  .switch span.active {
+    height: 13px;
+    width: 13px;
+    border-radius: 7px;
   }
 </style>
