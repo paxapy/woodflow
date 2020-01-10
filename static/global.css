@@ -48,7 +48,9 @@ figure {
 	font-size: 13px;
 	color: white;
 	background: black;
+	border: none;
 	border-radius: 5px;
+	cursor: pointer;
 }
 
 .link-button.white {
