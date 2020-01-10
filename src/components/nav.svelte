@@ -12,8 +12,7 @@
 		<a href="/goods/{$currentCategory}">⟱</a>
 		<a href="/#shipyard">мастерская</a>
 		<a href="/#goods">лодки и каноэ</a>
-	{/if}
-	{#if segment && segment.includes("goods")}
+	{:else}
 		<a href="/">⟰</a>
 		{#each $categories as category}
 			<a href="/goods/{category.slug}" class="{category.slug === $currentCategory ? 'active' : ''}">
