@@ -90,5 +90,5 @@ const initialGoods = [
 
 export const allGoods = writable(initialGoods);
 export const categories = writable(initialCategories);
-export const currentGood = writable({});
+export const currentGood = writable(initialGoods[0]);
 export const currentCategory = writable('boats');

@@ -7,9 +7,11 @@
   let goods = [];
   page.subscribe((page) => {
     const category = page.params.category;
-    currentCategory.set(category);
-    goods = $allGoods.filter(good => good.category === category)
-    setGood(goods[0])
+    if (category) {
+      currentCategory.set(category);
+      goods = $allGoods.filter(good => good.category === category)
+      setGood(goods[0])
+    }
   });
   function setGood(good) {
     currentGood.set(good);
@@ -35,12 +37,8 @@
 <style>
   .goods-nav {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 42px 230px;
-    box-sizing: border-box;
-    z-index: 6;
+    top: 50px;
+    left: 210px;
   }
 
   .goods-nav a {
@@ -55,7 +53,8 @@
 
   @media screen and (max-width: 998px) {
     .goods-nav {
-      padding: 108px 64px;
+      top: 110px;
+      left: 64px;
     }
   }
 </style>

@@ -29,7 +29,9 @@
 </style>
 
 <header class="header">
-  <img alt='woodflow' src='img/logo.png'>
+  <a href="/">
+    <img alt='woodflow' src='img/logo.png'>
+  </a>
   <address>
     <a href="/#contact" class="location">Пеновский район, д. Гора</a>
     <a href="mailto:order@woodflow.ru">
