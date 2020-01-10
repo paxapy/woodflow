@@ -54,11 +54,14 @@
       </tr>
     </tbody>
   </table>
+  
+  <figure class="slider" on:click={() => nextImage()}>
+    <img alt={good.title} src={image}>
+  </figure>
+
   <p class="description"></p>
 
   <h2 class="price">{good.price} ₽</h2>
-
-  <button class="link-button big" on:click={() => showModal = true}>Заказать</button>
 
   {#if good.images.length > 1}
     <nav class="switch">
@@ -70,11 +73,9 @@
       {/each}
     </nav>
   {/if}
-</section>
 
-<figure class="slider" on:click={() => nextImage()}>
-  <img alt={good.title} src={image}>
-</figure>
+  <button class="link-button big" on:click={() => showModal = true}>Заказать</button>
+</section>
 
 {#if showModal}
 	<Modal on:close="{() => showModal = false}">
@@ -125,7 +126,7 @@
   }
 
   .details .price {
-    margin-top: 210px;
+    margin-top: 242px;
     font-size: 45px;
     font-weight: bold;
   }
@@ -174,5 +175,18 @@
     height: 13px;
     width: 13px;
     border-radius: 7px;
+  }
+
+  @media screen and (max-width: 998px) {
+    .details {
+      padding: 158px 72px;
+    }
+
+    .details .price {
+      margin-top: 50%;
+    }
+    .slider {
+      top: 33%;
+    }
   }
 </style>
