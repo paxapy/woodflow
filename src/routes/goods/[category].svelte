@@ -32,7 +32,7 @@
   {/each}
 </nav>
 
-<Good good={$currentGood}></Good>
+<Good good={$currentGood} image={$currentGood.images[0]}></Good>
 
 <style>
   .goods-nav {

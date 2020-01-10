@@ -2,8 +2,8 @@
   import Modal from './modal.svelte';
 
   export let good;
-  
-  let image;
+  export let image;
+
   let imgTime;
   let showModal = false;
 
