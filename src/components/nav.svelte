@@ -1,6 +1,35 @@
 <script>
+	import { categories, currentCategory } from '../store/goods.js';
 	export let segment;
 </script>
+
+
+<nav class="nav">
+	<a href="/" class="home">
+		<img alt="woodflow" src="img/icon.png">
+	</a>
+	{#if segment === undefined}
+		<a href="/goods/{$currentCategory}">⟱</a>
+		<a href="/#shipyard">мастерская</a>
+		<a href="/#goods">лодки и каноэ</a>
+	{/if}
+	{#if segment && segment.includes("goods")}
+		<a href="/">⟰</a>
+		{#each $categories as category}
+			<a href="/goods/{category.slug}" class="{category.slug === $currentCategory ? 'active' : ''}">
+				{category.title}
+			</a>
+		{/each}
+	{/if}
+	<div class="contact">
+		<a href="tel:+79190673506">
+			<img alt="call" src="img/icons/call-white.svg">
+		</a>
+		<a href="mailto:order@woodflow.ru">
+			<img alt="email" src="img/icons/mail-white.svg">
+		</a>
+	</div>
+</nav>
 
 <style>
 	.nav {
@@ -36,6 +65,8 @@
 	.nav .contact {
 		display: none;
 		flex-flow: column;
+		position: absolute;
+    bottom: 13%;
 	}
 
 	.nav:hover .contact {
@@ -47,27 +78,3 @@
 		transform: rotate(-90deg);
 	}
 </style>
-
-<nav class="nav">
-	<a href="/" class="home">
-		<img alt="woodflow" src="img/icon.png">
-	</a>
-	{#if segment === undefined}
-		<a href="/goods/boats">⟱</a>
-		<a href="/#shipyard">мастерская</a>
-		<a href="/#goods">лодки и каноэ</a>
-	{/if}
-	{#if segment && segment.includes("goods")}
-		<a href="/">⟰</a>
-		<a href="/goods/boats" class="{segment === 'boats' ? 'active' : ''}">лодки</a>
-		<a href="/goods/canoes" class="{segment === 'canoes' ? 'active' : ''}">каноэ</a>
-	{/if}
-	<div class="contact">
-		<a href="tel:+79190673506">
-			<img alt="call" src="img/icons/call-white.svg">
-		</a>
-		<a href="mailto:order@woodflow.ru">
-			<img alt="email" src="img/icons/mail-white.svg">
-		</a>
-	</div>
-</nav>

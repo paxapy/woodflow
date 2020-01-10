@@ -1,30 +1,17 @@
-<script context="module">
-  import Good from '../../components/good.svelte';
-  export async function preload({ params, query }) {
-    const res = await this.fetch(`goods.json`);
-    const data = await res.json();
-
-    if (res.status === 200) {
-      const goods = data.filter(g => g.category == params.category)
-      const currentGood = goods[0];
-      return {
-        goods: goods,
-        currentGood: currentGood,
-        category: params.category,
-      };
-    } else {
-      this.error(res.status, data.message);
-    }
-  }
-</script>
-
 <script>
-  export let category;
-  export let goods;
-  export let currentGood;
-
+  import { stores } from '@sapper/app';
+  import { allGoods, currentCategory, currentGood } from '../../store/goods.js';
+  import Good from '../../components/good.svelte';
+  
+  const { preloading, page, session } = stores();
+  let goods = [];
+  page.subscribe((page) => {
+    currentCategory.set(page.params.category);
+    goods = $allGoods.filter(good => good.category === $currentCategory)
+    setGood(goods[0])
+  });
   function setGood(good) {
-    currentGood = good;
+    currentGood.set(good);
   }
 </script>
 
@@ -34,15 +21,15 @@
 
 <nav class="goods-nav">
   {#each goods as good}
-    <a href='/goods/{category}#{good.slug}'
-      class="{currentGood.slug == good.slug ? 'active': ''}"
+    <a href='/goods/{$currentCategory}#{good.slug}'
+      class="{$currentGood.slug == good.slug ? 'active': ''}"
       on:click={() => setGood(good)}>
       {good.title}
     </a>
   {/each}
 </nav>
 
-<Good good={currentGood} image={currentGood.images[0]}></Good>
+<Good good={$currentGood} image={$currentGood.images[0]}></Good>
 
 <style>
   .goods-nav {
@@ -63,5 +50,11 @@
 
   .goods-nav a.active {
     text-decoration: underline;
+  }
+
+  @media screen and (max-width: 998px) {
+    .goods-nav {
+      padding: 108px 64px;
+    }
   }
 </style>

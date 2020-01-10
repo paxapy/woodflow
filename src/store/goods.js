@@ -1,13 +1,26 @@
-const goods = [
+import { writable } from 'svelte/store';
+
+const initialCategories = [
+  {
+    title: 'Лодки',
+    slug: 'boats'
+  },
+  {
+    title: 'Каноэ',
+    slug: 'canoes'
+  }
+]
+
+const initialGoods = [
   {
     title: 'Лодка',
     slug: 'sun',
     category: 'boats',
     images: [
-      'photos/boats/boat1.png',
-      'photos/boats/boat3.png',
       'photos/boats/boat4.png',
       'photos/boats/boat2.png',
+      'photos/boats/boat1.png',
+      'photos/boats/boat3.png',
       'photos/boats/boat7.png',
       'photos/boats/boat6.png',
       'photos/boats/boat8.png',
@@ -75,4 +88,7 @@ const goods = [
   }
 ];
 
-export default goods;
+export const allGoods = writable(initialGoods);
+export const categories = writable(initialCategories);
+export const currentGood = writable({});
+export const currentCategory = writable('boats');
