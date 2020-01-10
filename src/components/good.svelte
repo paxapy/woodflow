@@ -133,6 +133,7 @@
 
   .details .link-button {
     position: absolute;
+    padding: 27px 42px;
     z-index: 1;
   }
 

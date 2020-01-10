@@ -15,6 +15,116 @@
   setUrls();
 </script>
 
+<svelte:head>
+  <title>woodflow insides</title>
+</svelte:head>
+
+<figure class="home__top">
+  <img alt='woodflow' src={topUrl}>
+  <figcaption>
+    <h1>Деревянные лодки и каноэ</h1>
+      <p>По технологиям северо-американских кустарных производств</p>
+      <a href="/goods/boats" class="link-button big">Выбрать Лодку</a>
+  </figcaption>
+</figure>
+
+<section class="home__textbox" id="shipyard">
+  <h1>Мастерская</h1>
+  <p>
+    Производим и продаем уникальные легкие деревянные лодки и каноэ ручной работы.
+    Осуществляем доставку.
+    Лодки изнутри и снаружи покрываются стеклотканью на прозрачном эпоксидном составе,
+    что делает стеклоткань практически невидимой.
+    Древесина совершенно изолирована от воздействия воды.
+    Уход и реставрация при небольших повреждениях, царапинах, просты.
+  </p>
+  <a href="/our/choice" class="link-button">Подробнее</a>
+</section>
+
+<figure class="home__founder">
+  <img alt="founder" src="img/fofan.jpg">
+  <figcaption>Наша деревянная лодка</figcaption>
+</figure>
+
+<section class="home__textbox" id="goods">
+  <h1>Лодки и Каноэ</h1>
+  <p>
+      Обратите внимание на легкость, прочность и долговечность конструкции.
+      Отметим, что на обозримом пространстве никто не делает лодок из дерева
+      по современным технологиям, заимствованым по аналогам северо-американских
+      кустарных производств.
+      Кто видел 3-х местную деревянную лодку, которую можно унести на плече,
+      или каноэ, которое можно нести в одной руке?
+  </p>
+  <a href="/our/tech" class="link-button">Подробнее</a>
+</section>
+<section class="home__goods">
+  <figure>
+    <img alt="boats" src={boatUrl}>
+    <figcaption class="home__textbox">
+      <h1>Лодки</h1>
+      <p>
+        Отнюдь не нами выдуманная, современная и десятилетиями отработанная технология
+        изготовления деревянных лодок, практика их эксплуатации осуществлена в северной америке,
+        по крайней мере, со времен изобретения эпоксидных составов.
+      </p>
+      <a href="/goods/boats" class="link-button white">Подробнее</a>
+    </figcaption>
+  </figure>
+  <figure>
+    <img alt="canoes" src={canoeUrl}>
+    <figcaption class="home__textbox">
+      <h1>Каноэ</h1>
+      <p>
+        Были случаи, когда человек приобретал у нас каноэ, чтобы подвесить его над камином.
+        Если это лодка не из дерева, то возможно было бы такое?
+      </p>
+      <a href="/goods/canoes" class="link-button white">Подробнее</a>
+    </figcaption>
+  </figure>
+</section>
+
+<section class="home__textbox">
+  <h1>Дерево и Вода</h1>
+  <p>
+    Мастерская расположена в Пеновском районе Тверской области (Верхневолжские озера, 40 км до истока Волги).
+    Древесина для изготовления лодок производится в непосредственной близости от мастерской,
+    заготавливается в лесах нашего района.
+  </p>
+  <p>
+    В ближайших планах расширение модельного ряда,
+    изготовление лодок других размеров и применение дорогих пород древесины.
+  </p>
+</section>
+
+<section class="home__contacts" id="contact">
+  <div class="map">
+    <iframe title="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+      src="https://www.openstreetmap.org/export/embed.html?bbox=32.593517303466804%2C56.975438847875594%2C32.65136718750001%2C56.99299969366218&amp;layer=mapnik">
+    </iframe>
+  </div>
+  <div class="home__textbox">
+    <h1>Контакты</h1>
+    <p class="bold">
+      Если вы хотите, что бы мы изготовили для вас деревянную лодку или каноэ
+    </p>
+    <p>
+      или хотите обсудить сроки изготовления, а так же способ доставки и все прочие вопросы:
+    </p>
+    <p class="contact">
+      <a href="tel:+79190673506">
+        <img alt="call" src="img/icons/call-white.svg">
+        8 919 067 35 06
+      </a>
+      <a href="mailto:order@woodflow.ru">
+        <img alt="email" src="img/icons/mail-white.svg">
+        order@woodflow.ru
+      </a>
+    </p>
+  </div>
+</section>
+
+
 <style>
   .home__top {
     margin: 0;
@@ -32,7 +142,7 @@
     top: 142px;
     left: 72px;
     font-size: 19px;
-    width: 33em;
+    max-width: 33em;
   }
 
   .home__top figcaption h1 {
@@ -42,7 +152,8 @@
   }
 
   .home__top figcaption .link-button {
-    margin-top: 13em;
+    position: absolute;
+    top: 56vh;
   }
 
   .home__textbox {
@@ -167,113 +278,47 @@
   .home__contacts .home__textbox p.contact a img {
     padding-right: 11px;
   }
+
+  @media screen and (max-width: 998px) {
+    .home__textbox p {
+      padding: 0 13%;
+    }
+  }
+
+  @media screen and (max-width: 720px) {
+    .home__textbox p {
+      padding: 0;
+    }
+    .home__goods figure {
+      width: 100%;
+    }
+    .home__goods figure:last-child {
+      display: none;
+    }
+    .home__contacts .map {
+      display: none;
+    }
+    .home__contacts .home__textbox {
+      width: 100%;
+      padding: 0 13%;
+    }
+  }
+
+  @media screen and (max-width: 604px) {
+    .home__top figcaption {
+      left: 33px;
+    }
+    .home__top figcaption h1 {
+      font-size: 42px;
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    .home__top figcaption h1 {
+      font-size: 33px;
+    }
+    .home__textbox h1 {
+      font-size: 32px;
+    }
+  }
 </style>
-
-<svelte:head>
-  <title>woodflow insides</title>
-</svelte:head>
-
-<figure class="home__top">
-  <img alt='woodflow' src={topUrl}>
-  <figcaption>
-    <h1>Деревянные лодки и каноэ</h1>
-      <p>По технологиям северо-американских кустарных производств</p>
-      <a href="/goods/boats" class="link-button big">Выбрать Лодку</a>
-  </figcaption>
-</figure>
-
-<section class="home__textbox" id="shipyard">
-  <h1>Мастерская</h1>
-  <p>
-    Производим и продаем уникальные легкие деревянные лодки и каноэ ручной работы.
-    Осуществляем доставку.
-    Лодки изнутри и снаружи покрываются стеклотканью на прозрачном эпоксидном составе,
-    что делает стеклоткань практически невидимой.
-    Древесина совершенно изолирована от воздействия воды.
-    Уход и реставрация при небольших повреждениях, царапинах, просты.
-  </p>
-  <a href="/our/choice" class="link-button">Подробнее</a>
-</section>
-
-<figure class="home__founder">
-  <img alt="founder" src="img/fofan.jpg">
-  <figcaption>Наша деревянная лодка</figcaption>
-</figure>
-
-<section class="home__textbox" id="goods">
-  <h1>Лодки и Каноэ</h1>
-  <p>
-      Обратите внимание на легкость, прочность и долговечность конструкции.
-      Отметим, что на обозримом пространстве никто не делает лодок из дерева
-      по современным технологиям, заимствованым по аналогам северо-американских
-      кустарных производств.
-      Кто видел 3-х местную деревянную лодку, которую можно унести на плече,
-      или каноэ, которое можно нести в одной руке?
-  </p>
-  <a href="/our/tech" class="link-button">Подробнее</a>
-</section>
-<section class="home__goods">
-  <figure>
-    <img alt="boats" src={boatUrl}>
-    <figcaption class="home__textbox">
-      <h1>Лодки</h1>
-      <p>
-        Отнюдь не нами выдуманная, современная и десятилетиями отработанная технология
-        изготовления деревянных лодок, практика их эксплуатации осуществлена в северной америке,
-        по крайней мере, со времен изобретения эпоксидных составов.
-      </p>
-      <a href="/goods/boats" class="link-button white">Подробнее</a>
-    </figcaption>
-  </figure>
-  <figure>
-    <img alt="canoes" src={canoeUrl}>
-    <figcaption class="home__textbox">
-      <h1>Каноэ</h1>
-      <p>
-        Были случаи, когда человек приобретал у нас каноэ, чтобы подвесить его над камином.
-        Если это лодка не из дерева, то возможно было бы такое?
-      </p>
-      <a href="/goods/canoes" class="link-button white">Подробнее</a>
-    </figcaption>
-  </figure>
-</section>
-
-<section class="home__textbox">
-  <h1>Дерево и Вода</h1>
-  <p>
-    Мастерская расположена в Пеновском районе Тверской области (Верхневолжские озера, 40 км до истока Волги).
-    Древесина для изготовления лодок производится в непосредственной близости от мастерской,
-    заготавливается в лесах нашего района.
-  </p>
-  <p>
-    В ближайших планах расширение модельного ряда,
-    изготовление лодок других размеров и применение дорогих пород древесины.
-  </p>
-</section>
-
-<section class="home__contacts" id="contact">
-  <div class="map">
-    <iframe title="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-      src="https://www.openstreetmap.org/export/embed.html?bbox=32.593517303466804%2C56.975438847875594%2C32.65136718750001%2C56.99299969366218&amp;layer=mapnik">
-    </iframe>
-  </div>
-  <div class="home__textbox">
-    <h1>Контакты</h1>
-    <p class="bold">
-      Если вы хотите, что бы мы изготовили для вас деревянную лодку или каноэ
-    </p>
-    <p>
-      или хотите обсудить сроки изготовления, а так же способ доставки и все прочие вопросы:
-    </p>
-    <p class="contact">
-      <a href="tel:+79190673506">
-        <img alt="call" src="img/icons/call-white.svg">
-        8 919 067 35 06
-      </a>
-      <a href="mailto:order@woodflow.ru">
-        <img alt="email" src="img/icons/mail-white.svg">
-        order@woodflow.ru
-      </a>
-    </p>
-  </div>
-</section>
