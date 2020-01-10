@@ -1,5 +1,5 @@
 <script>
-  let topUrl = 'img/top4.jpg';
+  let topUrl = 'img/top2.jpg';
   let boatUrl = 'img/goods/boat1.jpg';
   let canoeUrl = 'img/goods/canoe3.jpg';
   function toggleImage(basePath, nums) {
@@ -7,9 +7,7 @@
     return `${basePath}${num}.jpg`;
   };
   function setUrls() {
-    const topNums = [4, 2];
     const goodNums = [1, 3, 4, 2];
-    topUrl = toggleImage('img/top', topNums);
     boatUrl = toggleImage('img/goods/boat', goodNums);
     canoeUrl = toggleImage('img/goods/canoe', goodNums);
     setTimeout(() => setUrls(), 4200);
