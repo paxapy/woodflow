@@ -192,6 +192,7 @@
     Древесина совершенно изолирована от воздействия воды.
     Уход и реставрация при небольших повреждениях, царапинах, просты.
   </p>
+  <a href="/our/choice" class="link-button">Подробнее</a>
 </section>
 
 <figure class="home__founder">
@@ -209,7 +210,7 @@
       Кто видел 3-х местную деревянную лодку, которую можно унести на плече,
       или каноэ, которое можно нести в одной руке?
   </p>
-  <a href="/goods/boats" class="link-button">Подробнее</a>
+  <a href="/our/tech" class="link-button">Подробнее</a>
 </section>
 <section class="home__goods">
   <figure>

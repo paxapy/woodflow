@@ -8,7 +8,7 @@
 	<a href="/" class="home">
 		<img alt="woodflow" src="img/icon.png">
 	</a>
-	{#if segment === undefined}
+	{#if !segment || !segment.includes('goods')}
 		<a href="/goods/{$currentCategory}">⟱</a>
 		<a href="/#shipyard">мастерская</a>
 		<a href="/#goods">лодки и каноэ</a>
