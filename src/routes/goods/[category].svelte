@@ -17,7 +17,7 @@
 </script>
 
 <svelte:head>
-  <title>Shipyard | {currentGood.title}</title>
+  <title>Shipyard | {$currentGood.title}</title>
 </svelte:head>
 
 <nav class="goods-nav">
@@ -30,7 +30,7 @@
   {/each}
 </nav>
 
-<Good good={$currentGood} image={$currentGood.images[0]}></Good>
+<Good good={$currentGood}></Good>
 
 <style>
   .goods-nav {

@@ -1,9 +1,9 @@
 <script>
   import Modal from './modal.svelte';
-  
-  export let good;
-  export let image;
 
+  export let good;
+  
+  let image;
   let imgTime;
   let showModal = false;
 
@@ -24,7 +24,7 @@
     imgTime = setTimeout(() => swipe(), 4200);
   }
 
-  setTimeout(() => swipe(), 4200);
+  swipe();
   
 </script>
 
