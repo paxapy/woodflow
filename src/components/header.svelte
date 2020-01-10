@@ -47,4 +47,10 @@
       display: none;
     }  
   }
+
+  @media screen and (max-width: 604px) {
+    .header {
+      padding: 42px 33px;
+    }
+  }
 </style>

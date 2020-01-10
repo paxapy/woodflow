@@ -321,4 +321,20 @@
       font-size: 32px;
     }
   }
+
+  @media screen and (max-width: 320px) {
+    .home__top figcaption h1 {
+      font-size: 27px;
+    }
+    .home__top figcaption .link-button {
+      padding: 21px 33px;
+      font-size: 17px;
+    }
+    .home__textbox {
+      padding: 13px;
+    }
+    .home__textbox h1 {
+      font-size: 27px;
+    }
+  }
 </style>
