@@ -1,19 +1,18 @@
 <script>
   let topUrl = 'img/top4.jpg';
-  let boatUrl = 'img/goods/boat21.jpg';
-  let canoeUrl = 'img/goods/canoe13.jpg';
+  let boatUrl = 'img/goods/boat1.jpg';
+  let canoeUrl = 'img/goods/canoe3.jpg';
   function toggleImage(basePath, nums) {
     const num = nums[Math.floor(Math.random() * nums.length)];
     return `${basePath}${num}.jpg`;
   };
   function setUrls() {
     const topNums = [4, 2];
-    const boatNums = [14, 16, 17, 18, 19, 20, 21, 22];
-    const canoeNums = [10, 12, 13];
+    const goodNums = [1, 3, 4, 2];
     topUrl = toggleImage('img/top', topNums);
-    boatUrl = toggleImage('img/goods/boat', boatNums);
-    canoeUrl = toggleImage('img/goods/canoe', canoeNums);
-    setTimeout(function () { setUrls(); }, 4200);
+    boatUrl = toggleImage('img/goods/boat', goodNums);
+    canoeUrl = toggleImage('img/goods/canoe', goodNums);
+    setTimeout(() => setUrls(), 4200);
   }
   setUrls();
 </script>
@@ -45,7 +44,7 @@
   }
 
   .home__top figcaption .link-button {
-    margin-top: 4em;
+    margin-top: 13em;
   }
 
   .home__textbox {
@@ -214,7 +213,6 @@
   </p>
   <a href="/goods/boats" class="link-button">Подробнее</a>
 </section>
-
 <section class="home__goods">
   <figure>
     <img alt="boats" src={boatUrl}>
