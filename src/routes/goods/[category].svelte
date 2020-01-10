@@ -6,8 +6,9 @@
   const { preloading, page, session } = stores();
   let goods = [];
   page.subscribe((page) => {
-    currentCategory.set(page.params.category);
-    goods = $allGoods.filter(good => good.category === $currentCategory)
+    const category = page.params.category;
+    currentCategory.set(category);
+    goods = $allGoods.filter(good => good.category === category)
     setGood(goods[0])
   });
   function setGood(good) {
