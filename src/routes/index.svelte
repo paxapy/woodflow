@@ -200,7 +200,7 @@
 
   .home__goods figure {
     width: 50%;
-    height: 64vh;
+    height: 54vh;
   }
 
   .home__goods figure img {
@@ -214,7 +214,7 @@
     position: relative;
     padding: 0;
     height: 100%;
-    bottom: 64.4vh;
+    bottom: 56.4vh;
     flex-flow: column;
     align-items: center;
     justify-content: center;
