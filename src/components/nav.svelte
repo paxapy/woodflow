@@ -21,12 +21,18 @@
 		{/each}
 	{/if}
 	<div class="contact">
-		<a href="tel:+79190673506">
-			<img alt="call" src="img/icons/call-white.svg">
-		</a>
-		<a href="mailto:order@woodflow.ru">
-			<img alt="email" src="img/icons/mail-white.svg">
-		</a>
+		<a class="lsf" target="_blank" href="https://vk.com/club63204386">
+      vk
+    </a>
+    <a class="lsf" target="_blank" href="https://www.instagram.com/lodki69/">
+      instagram
+    </a>
+    <a class="lsf" href="mailto:order@woodflow.ru">
+      mail
+    </a>
+    <a class="lsf" href="tel:+79190673506">
+      call
+    </a>
 	</div>
 </nav>
 
@@ -74,6 +80,7 @@
 
 	.nav .contact a {
 		padding: 7px 0;
-		transform: rotate(-90deg);
+		font-weight: normal;
+		font-size: 19pt;
 	}
 </style>

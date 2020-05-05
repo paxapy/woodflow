@@ -4,11 +4,17 @@
   </a>
   <address>
     <a href="/#contact" class="location">Пеновский район, д. Гора</a>
-    <a href="mailto:order@woodflow.ru">
-      <img alt="email" src="img/icons/mail.svg">
+    <a class="lsf" target="_blank" href="https://vk.com/club63204386">
+      vk
     </a>
-    <a href="tel:+79190673506">
-      <img alt="call" src="img/icons/call.svg">
+    <a class="lsf" target="_blank" href="https://www.instagram.com/lodki69/">
+      instagram
+    </a>
+    <a class="lsf" href="mailto:order@woodflow.ru">
+      mail
+    </a>
+    <a class="lsf" href="tel:+79190673506">
+      call
     </a>
   </address>
 </header>
@@ -40,6 +46,11 @@
 
   .header address a.location {
     padding-right: 42px;
+  }
+
+  .header address a.lsf {
+    font-size: 19pt;
+    font-weight: normal;
   }
 
   @media screen and (max-width: 720px) {
