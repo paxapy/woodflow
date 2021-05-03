@@ -111,6 +111,11 @@
     font-size: 64px;
   }
 
+  .details .spec {
+    position: relative;
+    z-index: 1;
+  }
+
   .details .spec th {
     font-weight: normal;
     padding: 0 23px 4px 0;
@@ -151,7 +156,6 @@
     width: 100%;
     position: relative;
     right: -11px;
-    z-index: -1;
   }
 
   .switch {
@@ -177,6 +181,10 @@
     height: 13px;
     width: 13px;
     border-radius: 7px;
+  }
+
+  .dark .switch span {
+    background: #ffebc7;
   }
 
   @media screen and (max-width: 998px) {

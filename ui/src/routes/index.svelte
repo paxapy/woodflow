@@ -1,7 +1,13 @@
 <script>
+  import { darkTheme } from '../store/ui.js';
+
   let topUrl = 'img/top2.jpg';
   let boatUrl = 'img/goods/boat1.jpg';
   let canoeUrl = 'img/goods/canoe3.jpg';
+
+  darkTheme.subscribe(isDark => {
+    topUrl = `img/top2${isDark ? '-dark': ''}.jpg`
+  })
 
   function toggleImage(basePath, nums) {
     const num = nums[Math.floor(Math.random() * nums.length)];

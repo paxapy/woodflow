@@ -1,5 +1,5 @@
 <script>
-	import { createEventDispatcher, onDestroy } from 'svelte';
+	import { createEventDispatcher } from 'svelte';
 
 	const dispatch = createEventDispatcher();
 	const close = () => dispatch('close');
@@ -54,4 +54,5 @@
 		top: 6px;
 		cursor: pointer;
 	}
+
 </style>

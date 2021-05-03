@@ -1,5 +1,6 @@
 <script context="module">
 	import { allCategories, currentCategory } from '../store/goods.js';
+	import { darkTheme } from '../store/ui.js';
 
 	export async function preload(page, session) {
 		const { API_HOST } = session;
@@ -17,20 +18,24 @@
 	import Footer from '../components/footer.svelte';
 
 	export let segment;
-	export let categories
+	export let categories;
+	export let isDark = true;
 
+	function toggleIsDark() {
+		isDark = !isDark;
+		darkTheme.set(isDark);
+	}
 </script>
 
-<style>
-	.content {
-		position: relative;
-	  margin-left: 72px;
-	}
-</style>
+<Nav
+	segment={segment}
+	categories={categories}
+	current={$currentCategory}
+	isDark={isDark}
+	on:toggleDark={() => toggleIsDark()}
+/>
 
-<Nav segment={segment} categories={categories} current={$currentCategory}/>
-
-<div class="content">
+<div class="content" class:dark={isDark}>
 	<Header />
 
 	<main>
@@ -39,3 +44,10 @@
 
 	<Footer />
 </div>
+
+<style>
+	.content {
+		position: relative;
+	  margin-left: 72px;
+	}
+</style>

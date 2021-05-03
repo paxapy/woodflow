@@ -1,19 +1,29 @@
 <script>
+	import { createEventDispatcher } from 'svelte';
+
 	export let segment;
 	export let categories;
 	export let current;
+	export let isDark;
+
+	const dispatch = createEventDispatcher();
+
+	function toggleDark() {
+		dispatch('toggleDark')
+	}
 </script>
 
-<nav class="nav">
+<nav class="nav" class:dark="{isDark}">
 	<a href="/" class="home">
-		<img alt="woodflow" src="img/icon.png">
+		<span></span>
+	</a>
+	<a href on:click|preventDefault={() => toggleDark()} class="small" title="toggle dark">
+		{isDark ? '☉' : '🌑︎'}
 	</a>
 	{#if !segment || !segment.includes('goods')}
-		<a href="/goods/{current}">⟱</a>
 		<a href="/#shipyard">мастерская</a>
 		<a href="/#goods">лодки и каноэ</a>
 	{:else}
-		<a href="/">⟰</a>
 		{#each categories as category}
 			<a href="/goods/{category.slug}" class="{category.slug === current ? 'active' : ''}">
 				{category.title}
@@ -58,9 +68,16 @@
 		white-space: nowrap;
 	}
 
+	.nav a.small {
+		padding: 11px 0;
+	}
+
 	.nav a.home {
 		transform: none;
-		padding: 0;
+		padding: 0 0 21px 0;
+		background: url('/img/icon.png') no-repeat;
+		width: 25px;
+    height: 50px;
 	}
 
 	.nav a.active {
@@ -82,5 +99,14 @@
 		padding: 7px 0;
 		font-weight: normal;
 		font-size: 19pt;
+	}
+
+	.dark.nav {
+		color: #0c0c0c;
+		background-color: #ffebc7;
+	}
+
+	.dark.nav a.home {
+		background-image: url('/img/icon-dark.png');
 	}
 </style>

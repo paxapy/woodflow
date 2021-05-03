@@ -104,6 +104,24 @@ figure {
 	border-radius: 4px;
 }
 
+.dark {
+	background-color: #0c0c0c;
+	color: #ffebc7;
+}
+
+.dark .link-button {
+	color: #0c0c0c;
+	background-color: #ffebc7;
+}
+
+.dark .modal-background {
+	background: rgba(255, 228, 106, 0.3);
+}
+
+.dark .modal {
+	color: black;
+}
+
 @media (min-width: 400px) {
 	body {
 		font-size: 16px;

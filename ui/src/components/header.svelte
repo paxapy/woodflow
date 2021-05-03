@@ -1,7 +1,5 @@
 <header class="header">
-  <a href="/">
-    <img alt='woodflow' src='img/logo.png'>
-  </a>
+  <a class="logo" href="/" title="woodflow"><span></span></a>
   <address>
     <a href="/#contact" class="location">Пеновский район, д. Гора</a>
     <a class="lsf" target="_blank" href="https://vk.com/club63204386">
@@ -32,6 +30,12 @@
   	box-sizing: border-box;
   }
 
+  .header .logo {
+    background: url('/img/logo.png') no-repeat;
+    width: 88px;
+    height: 30px;
+  }
+
   .header address {
     display: flex;
     align-items: center;
@@ -53,10 +57,14 @@
     font-weight: normal;
   }
 
+  .dark .header .logo {
+    background-image: url('/img/logo-dark.png');
+  }
+
   @media screen and (max-width: 720px) {
     .header address a.location {
       display: none;
-    }  
+    }
   }
 
   @media screen and (max-width: 604px) {
