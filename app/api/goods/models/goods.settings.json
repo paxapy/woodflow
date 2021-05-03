@@ -32,8 +32,8 @@
       "required": false
     },
     "category": {
-      "model": "category",
-      "via": "goods"
+      "via": "goods",
+      "model": "category"
     },
     "height": {
       "type": "decimal"

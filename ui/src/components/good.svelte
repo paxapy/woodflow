@@ -1,31 +1,31 @@
 <script lang="ts">
+  import { afterUpdate } from 'svelte';
+
   import Modal from './modal.svelte';
 
   export let good;
-  export let image;
 
-  let imgTime: number;
+  let image;
   let showModal = false;
+
+  afterUpdate(() => {
+    if (good.images.indexOf(image) === -1) {
+      setImage(good.images[0]);
+    }
+	});
 
   function setImage(img) {
     image = img;
-    // clearTimeout(imgTime);
   }
 
-  function nextImage() {
-    const current = good.images.indexOf(image);
-    const next = good.images[current + 1];
-    setImage(next ? next : good.images[0]);
-    // clearTimeout(imgTime);
+  function swipeImage() {
+    const index = good.images.indexOf(image);
+    const next = good.images[index + 1];
+    const img = next ? next : good.images[0];
+    setImage(img);
   }
 
-  function swipe() {
-    nextImage();
-    imgTime = setTimeout(() => swipe(), 4200);
-  }
-
-  // swipe();
-  nextImage();
+  swipeImage();
 
 </script>
 
@@ -56,7 +56,7 @@
     </tbody>
   </table>
 
-  <figure class="slider" on:click={() => nextImage()}>
+  <figure class="slider" on:click={() => swipeImage()}>
     <img alt={good.title} src={image.url}>
   </figure>
 

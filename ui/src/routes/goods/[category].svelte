@@ -1,7 +1,8 @@
 <script context="module">
   export async function preload(page, session) {
+    const { API_HOST } = session;
     const category = page.params.category;
-    const res = await this.fetch(`http://localhost:1337/goods?category.slug=${category}`);
+    const res = await this.fetch(`${API_HOST}/goods?category.slug=${category}`);
 		const goods = await res.json();
 		return { category, goods };
   }
@@ -31,7 +32,7 @@
 </script>
 
 <svelte:head>
-  <title>Shipyard | {$currentGood.title}</title>
+  <title>Лодочная | {$currentGood.title}</title>
 </svelte:head>
 
 <nav class="goods-nav">
@@ -44,7 +45,7 @@
   {/each}
 </nav>
 
-<Good good={$currentGood} image={$currentGood.images[0]}></Good>
+<Good good={$currentGood}></Good>
 
 <style>
   .goods-nav {

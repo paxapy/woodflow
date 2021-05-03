@@ -1,21 +1,21 @@
 <script>
-	import { categories, currentCategory } from '../store/goods.js';
 	export let segment;
+	export let categories;
+	export let current;
 </script>
-
 
 <nav class="nav">
 	<a href="/" class="home">
 		<img alt="woodflow" src="img/icon.png">
 	</a>
 	{#if !segment || !segment.includes('goods')}
-		<a href="/goods/{$currentCategory}">⟱</a>
+		<a href="/goods/{current}">⟱</a>
 		<a href="/#shipyard">мастерская</a>
 		<a href="/#goods">лодки и каноэ</a>
 	{:else}
 		<a href="/">⟰</a>
-		{#each $categories as category}
-			<a href="/goods/{category.slug}" class="{category.slug === $currentCategory ? 'active' : ''}">
+		{#each categories as category}
+			<a href="/goods/{category.slug}" class="{category.slug === current ? 'active' : ''}">
 				{category.title}
 			</a>
 		{/each}
