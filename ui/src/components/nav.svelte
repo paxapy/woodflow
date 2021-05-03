@@ -21,11 +21,11 @@
 		{isDark ? '☉' : '🌑︎'}
 	</a>
 	{#if !segment || !segment.includes('goods')}
-		<a href="/#shipyard">мастерская</a>
-		<a href="/#goods">лодки и каноэ</a>
+		<a class="big" href="/#shipyard">мастерская</a>
+		<a class="big" href="/#goods">лодки и каноэ</a>
 	{:else}
 		{#each categories as category}
-			<a href="/goods/{category.slug}" class="{category.slug === current ? 'active' : ''}">
+			<a href="/goods/{category.slug}" class="big" class:active="{category.slug === current}">
 				{category.title}
 			</a>
 		{/each}
@@ -108,5 +108,11 @@
 
 	.dark.nav a.home {
 		background-image: url('/img/icon-dark.png');
+	}
+
+	@media screen and (max-height: 580px) {
+		.nav:hover a.big {
+			display: none;
+		}
 	}
 </style>

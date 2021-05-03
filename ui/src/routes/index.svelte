@@ -120,12 +120,12 @@
     </p>
     <p class="contact">
       <a href="tel:+79190673506">
-        <img alt="call" src="img/icons/call-white.svg">
-        8 919 067 35 06
+        <span class="lsf">call</span>
+        <span>8 919 067 35 06</span>
       </a>
       <a href="mailto:order@woodflow.ru">
-        <img alt="email" src="img/icons/mail-white.svg">
-        order@woodflow.ru
+        <span class="lsf">mail</span>
+        <span>order@woodflow.ru</span>
       </a>
     </p>
   </div>
@@ -282,8 +282,9 @@
     text-decoration: none;
   }
 
-  .home__contacts .home__textbox p.contact a img {
-    padding-right: 11px;
+  .home__contacts .home__textbox p.contact a span.lsf {
+    font-size: 24px;
+    padding-right: 8px;
   }
 
   @media screen and (max-width: 998px) {
