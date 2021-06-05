@@ -1,8 +1,8 @@
-<script lang="ts">
+<script>
   import { afterUpdate } from 'svelte';
-
   import Modal from './modal.svelte';
 
+  export let mediaPrefix;
   export let good;
 
   let image;
@@ -57,7 +57,7 @@
   </table>
 
   <figure class="slider" on:click={() => swipeImage()}>
-    <img alt={good.title} src={image.url}>
+    <img alt={good.title} src={`${mediaPrefix}${image.url}`}>
   </figure>
 
   <p class="description"></p>

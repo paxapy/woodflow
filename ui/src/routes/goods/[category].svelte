@@ -1,10 +1,10 @@
 <script context="module">
   export async function preload(page, session) {
-    const { API_HOST } = session;
+    const { API_HOST, MEDIA_HOST } = session;
     const category = page.params.category;
     const res = await this.fetch(`${API_HOST}/goods?category.slug=${category}`);
 		const goods = await res.json();
-		return { category, goods };
+		return { category, goods, mediaPrefix: MEDIA_HOST };
   }
 </script>
 
@@ -14,6 +14,7 @@
   import { currentCategory, currentGood } from '../../store/goods.js';
   import Good from '../../components/good.svelte';
 
+  export let mediaPrefix;
   export let category;
   export let goods;
 
@@ -45,7 +46,7 @@
   {/each}
 </nav>
 
-<Good good={$currentGood}></Good>
+<Good good={$currentGood} mediaPrefix={mediaPrefix}></Good>
 
 <style>
   .goods-nav {
