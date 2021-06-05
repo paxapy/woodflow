@@ -148,6 +148,7 @@
     top: 210px;
     right: 0;
     width: 82%;
+    max-height: 75%;
     overflow: hidden;
     cursor: pointer;
   }

@@ -284,6 +284,7 @@
 
   .home__contacts .home__textbox p.contact a span.lsf {
     font-size: 24px;
+    font-weight: normal;
     padding-right: 8px;
   }
 
